@@ -1,0 +1,44 @@
+
+<h1 class="title">Formulário</h1>
+
+
+<form (submit)="onSubmit()" >
+
+  <div>
+    <app-calendar [(date)]="transacao.data"></app-calendar>
+  </div>
+
+  <div>
+    <label for="transacao.data">Data</label>
+    <input id="transacao.data" type="date" name="data" (ngModel)="transacao.data" [ngModel]="transacao.data | date : 'yyyy-MM-dd' " >
+  </div>
+
+  <div>
+    <label for="transacao.descricao">Descrição</label>
+    <input id="transacao.descricao" type="text" name="descricao" [(ngModel)]="transacao.descricao">
+  </div>
+
+  <div>
+    <label for="transacao.valor">Valor</label>
+    <input id="transacao.valor" type="text" (keyup)="transformAmount($event)" name="valor" [(ngModel)]="transacao.valorFormatado" >
+  </div>
+  <div>
+    <label for="transacao.valor">Opção</label>
+    <select>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+      <option>Teste</option>
+    </select>
+  </div>
+
+  <div>
+    <button class="btn btn-flat btn-primary">Enviar</button>
+    <button type="reset" class="btn btn-flat btn-warning">Cancelar</button>
+  </div>
+
+</form>

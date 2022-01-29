@@ -1,0 +1,78 @@
+.calendar {
+  width: 100%;
+  border: 1px solid var(--light);
+  transition: box-shadow ease-in-out 100ms, border-color ease-in-out 100ms;
+  font-size: 0.9rem;
+  border-spacing: 5px;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
+
+  &:hover {
+    box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
+  }
+  & > thead th {
+    font-weight: bold;
+    // text-align: center;
+    background-color: var(--dark);
+    // padding: 0.8rem 0.2rem;
+    color: var(--light);
+  }
+  &__header__year-month th {
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+  }
+  &__header__day-of-week th {
+    text-align: center;
+    padding: 0.3rem 0.2rem;
+  }
+  & > tbody td {
+    text-align: center;
+    padding: 0.6rem 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    cursor: pointer;
+    transition: background ease-in-out 200ms;
+    box-shadow: 0px;
+    border-radius: 1rem;
+    &:hover {
+      // box-shadow: 0px 0px 3px 0px var(--dark);
+      background-color: var(--calendar-background-hover);
+      color: var(--calendar-color-hover);
+
+      // border-radius: 5px;
+    }
+  }
+  &__change-month {
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+  }
+  &__year {
+    font-size: 1rem;
+    text-align: left;
+    display: block;
+  }
+  &__month {
+    font-size: 0.8rem;
+    text-align: left;
+    display: block;
+  }
+  .actual-date {
+    background-color: var(--primary);
+  }
+  .different-month {
+    color: var(--light);
+  }
+  .weekend-date {
+    background: var(--calendar-background-weekend);
+    color: var(--calendar-color-weekend) !important;
+  }
+  .weekend-date.different-month {
+    // color: var(--callendar-color-weekend) !important;
+  }
+}

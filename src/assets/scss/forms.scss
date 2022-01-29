@@ -1,0 +1,44 @@
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  display: block;
+}
+
+input,
+select {
+  border: 1px solid var(--light);
+  padding: 0.5rem 1rem;
+  outline: none;
+  transition: background-color ease-in-out 500ms, border-color ease-in-out 500ms;
+  font-size: 1rem;
+  background-color: lighten($color: $light, $amount: 7);
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  appearance: none;
+  &:focus {
+    border-color: var(--info);
+    background-color: lighten($color: $light, $amount: 10);
+    box-shadow: 0px 0px 0px 0.3rem rgba($primary, 0.1);
+  }
+}
+
+select {
+  background-image: url("../img/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 0.7rem;
+  background-position: right 15px top 0.7rem;
+}
+
+select * {
+  background-color: lighten($color: $light, $amount: 7);
+  border: 1px solid var(--light);
+  box-shadow: 0px;
+  padding: 1rem;
+  margin: 1rem;
+
+  &:hover {
+    background-color: var(--light);
+  }
+}

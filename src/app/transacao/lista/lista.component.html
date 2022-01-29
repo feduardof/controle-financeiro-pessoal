@@ -1,0 +1,24 @@
+
+
+
+  <h1 class="title">Transações</h1>
+
+  <ul class="transacoes">
+    <li *ngFor="let transacao of transacoes" class="transacoes__item">
+      <span class="transacoes__item__data">{{transacao.data | date : 'dd/MM/YY' }}</span>
+      <span class="transacoes__item__descricao">{{transacao.descricao }}</span>
+      <span class="transacoes__item__valor text-right">{{transacao.valor | currency }}</span>
+    </li>
+    <li *ngIf="transacoes.length != 0" class="transacoes__total">
+      <span class="transacoes__total__descricao">Total</span>
+      <span class="transacoes__total__valor text-right">{{somatorio}}</span>
+
+    </li>
+    <li *ngIf="transacoes.length == 0">
+      <div class="alert alert-warning">
+        Sem dados
+      </div>
+    </li>
+  </ul>
+
+

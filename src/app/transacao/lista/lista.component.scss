@@ -1,0 +1,42 @@
+.transacoes {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  &__item {
+    padding: 0.5rem 0.5rem;
+    display: grid;
+    grid-template-areas: "a b c";
+    grid-template-columns: 70px 1fr 150px;
+
+    &:not(:first-child) {
+      border-top: 1px solid var(--light);
+    }
+    &__data {
+      grid-area: a;
+    }
+    &__descricao {
+      grid-area: b;
+    }
+    &__valor {
+      grid-area: c;
+    }
+  }
+  &__total {
+    padding: 0.5rem 0.5rem;
+    display: grid;
+    grid-template-areas: "b c";
+    grid-template-columns: 1fr 150px;
+    background-color: var(--light);
+    font-weight: bold;
+
+    &:not(:first-child) {
+      border-top: 1px solid var(--light);
+    }
+    &__descricao {
+      grid-area: b;
+    }
+    &__valor {
+      grid-area: c;
+    }
+  }
+}

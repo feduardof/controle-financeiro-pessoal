@@ -1,0 +1,48 @@
+// $primary: #0573c1;
+// $secodary: #5a5a5a;
+
+// $warning: #f2b648;
+// $danger: #df2f2c;
+// $success: #96e072;
+// $info: #51c5f7;
+// $light: #dce1ed;
+// $dark: #31362a;
+
+// https://flatuicolors.com/palette/us
+$primary: #0984e3;
+$secodary: #636e72;
+
+$warning: #ffeaa7;
+$danger: #fab1a0;
+$success: #55efc4;
+$info: #74b9ff;
+$light: #dfe6e9;
+$dark: #2d3436;
+
+$calendarBgHover: #55efc4; // #e8f0f3;
+$calendarColorHover: #2f2f30; // #e8f0f3;
+
+$calendarBgWeekend: #fff;
+$calendarColorWeekend: #838789;
+
+:root {
+  --primary: #{$primary};
+  --secodary: #{$secodary};
+
+  --warning: #{$warning};
+  --danger: #{$danger};
+  --success: #{$success};
+  --info: #{$info};
+  --light: #{$light};
+  --dark: #{$dark};
+
+  --other: #defff2;
+  --header-color: #0ff4c6;
+  --header-background: #000009;
+
+  --calendar-background-hover: #{$calendarBgHover};
+  --callendar-color-hover: #{$calendarColorHover};
+
+  --calendar-background-weekend: #{$calendarBgWeekend};
+  --calendar-color-weekend: #{$calendarColorWeekend};
+}

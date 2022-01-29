@@ -1,0 +1,28 @@
+<table class="calendar">
+  <thead>
+    <tr class="calendar__header__year-month">
+      <th (click)="previousMonth()" class="calendar__change-month"> &#x226A; </th>
+      <th colspan="5"><span class="calendar__year">{{year}}</span> <span class="calendar__month">{{month}}</span></th>
+      <th (click)="nextMonth()" class="calendar__change-month"> &#x226B; </th>
+    </tr>
+    <tr class="calendar__header__day-of-week">
+      <th> D </th>
+      <th> S </th>
+      <th> T </th>
+      <th> Q </th>
+      <th> Q </th>
+      <th> S </th>
+      <th> S </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let week of struct" >
+      <td *ngFor="let day of week" class="day"
+        [class.today]="isToday(day)"
+        [class.weekend-date]="isWeekend(day)"
+        [class.different-month]="inDifferentMonthStruct(day)"
+        (click)="selectDate(day)"
+        @fade> {{day.getDate()}} </td>
+    </tr>
+  </tbody>
+</table>

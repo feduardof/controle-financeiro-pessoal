@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'financeiro';
+  tituloLista = "Lista de componentes";
+
+  onSubmit() {
+    console.log("Evento chamado pelo pai");
+  }
 }
