@@ -25,6 +25,12 @@ $calendarColorHover: #2f2f30; // #e8f0f3;
 $calendarBgWeekend: #fff;
 $calendarColorWeekend: #838789;
 
+$calendarTodayBg: $success; // #16d388;
+$calendarTodayColor: #054231;
+
+$calendarSelectedBg: #2d3436;
+$calendarSelectedColor: #e1edf1;
+
 :root {
   --primary: #{$primary};
   --secodary: #{$secodary};
@@ -45,4 +51,8 @@ $calendarColorWeekend: #838789;
 
   --calendar-background-weekend: #{$calendarBgWeekend};
   --calendar-color-weekend: #{$calendarColorWeekend};
+  --calendar-today-bg: #{$calendarTodayBg};
+  --calendar-today-color: #{$calendarTodayColor};
+  --calendar-selected-bg: #{$calendarSelectedBg};
+  --calendar-selected-color: #{$calendarSelectedColor};
 }

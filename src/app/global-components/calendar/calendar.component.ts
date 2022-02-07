@@ -33,7 +33,10 @@ export class CalendarComponent implements OnInit {
   private modeRanger = false;
 
   @Input() date?: Date;
+  @Input() onlyMonthYear: boolean = false;
+
   @Output() dateChange = new EventEmitter<Date>();
+  @Output() monthChange = new EventEmitter<Date>();
 
   @Output() delimiter?: DateRanger;
   @Output() dateRange?: DateRanger;
@@ -57,7 +60,7 @@ export class CalendarComponent implements OnInit {
   }
 
   get month() {
-    return this.showDate.toLocaleString('default', { month: 'long' });
+    return this.showDate.toLocaleString('pt-BR', { month: 'long' });
   }
   get year() {
     return this.showDate.getFullYear();
@@ -78,10 +81,12 @@ export class CalendarComponent implements OnInit {
   nextMonth() {
     this.showDate = new Date(this.showDate.getFullYear(), this.showDate.getMonth() + 1, 1);
     this.mountStruct();
+    this.monthChange.emit(this.showDate);
   }
   previousMonth() {
     this.showDate = new Date(this.showDate.getFullYear(), this.showDate.getMonth() - 1, 1);
     this.mountStruct();
+    this.monthChange.emit(this.showDate);
   }
 
   mountStruct() {
@@ -92,6 +97,7 @@ export class CalendarComponent implements OnInit {
     currentDate.setDate(currentDate.getDate() - this.firstDay.getDay())
     let plusOneDate = () => currentDate.setDate(currentDate.getDate() + 1);
     let thoseAreDays = true;
+
     do {
       let week: (Date) [] = [];
       daysOfWeek.forEach((i) => {
@@ -100,7 +106,7 @@ export class CalendarComponent implements OnInit {
         plusOneDate();
       });
       struct.push(week)
-    } while (thoseAreDays);
+    } while (struct.length < 6);
 
     this.struct = struct;
   }
@@ -109,16 +115,44 @@ export class CalendarComponent implements OnInit {
     this.date = date;
     this.dateChange.emit(date);
   }
+
+  private equals(dateA : Date, dateB : Date) : Boolean {
+    return dateA.getFullYear() == dateB.getFullYear() &&
+      dateA.getMonth() == dateB.getMonth() &&
+      dateA.getDate() == dateB.getDate();
+  }
+
+  private isBetween(date: Date, dateRanger: DateRanger): Boolean {
+    return dateRanger.min.getTime() < date.getTime() && dateRanger.max.getTime() > date.getTime();
+  }
+
   isToday(day : Date) {
-    return this.today.getFullYear() == day.getFullYear() &&
-      this.today.getMonth() == day.getMonth() &&
-      this.today.getDate() == day.getDate();
+    return this.equals(this.today,day);
   }
   inDifferentMonthStruct(day : Date) {
-    return this.month != day.toLocaleString('default', { month: 'long' })
+    return this.month != day.toLocaleString('pt-BR', { month: 'long' })
   }
   isWeekend(day : Date) {
     return day.getDay() == 0 || day.getDay() == 6;
+  }
+  isDateSelected(day: Date) {
+    if (this.dateRange != null) return false;
+    if (this.date == null) return false;
+    return this.equals(this.date, day);
+  }
+
+  isStartRanger(day: Date) {
+    if (this.dateRange == null) return false;
+    return this.equals(day,this.dateRange.min);
+  }
+  isInsideRanger(day: Date) {
+    if (this.dateRange == null) return false;
+    return this.isBetween(day, this.dateRange)
+  }
+
+  isEndRanger(day: Date) {
+    if (this.dateRange == null) return false;
+    return this.equals(day,this.dateRange.max);
   }
 
 

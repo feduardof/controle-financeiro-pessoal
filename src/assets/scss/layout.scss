@@ -32,6 +32,12 @@ section {
   grid-template-columns: 1fr 300px 580px 300px 1fr;
   grid-template-areas: "z l c r y";
 }
+
+.content {
+  max-width: 1400px;
+  margin-left: calc(calc(100% - 1400px) / 2);
+}
+
 router-outlet {
   display: none;
 }
@@ -68,4 +74,8 @@ router-outlet {
   font-size: 1.2em;
   line-height: 42px;
   padding-left: 12px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--light);
 }

@@ -1,0 +1,16 @@
+.table {
+  border: 1px solid;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border-radius: 5px;
+  border-color: var(--light);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  td,
+  th {
+    border: 1px solid;
+    padding: 1rem;
+    border-color: var(--light);
+  }
+}

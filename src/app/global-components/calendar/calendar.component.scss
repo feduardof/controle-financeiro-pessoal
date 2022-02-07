@@ -7,15 +7,20 @@
   border-collapse: collapse;
   box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
 
+  max-width: 300px;
+
   &:hover {
     box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
   }
-  & > thead th {
+  & > thead > tr > th {
     font-weight: bold;
-    // text-align: center;
-    background-color: var(--dark);
-    // padding: 0.8rem 0.2rem;
-    color: var(--light);
+    color: var(--dark);
+  }
+  & > thead > tr:last-child > th {
+    border-bottom: 1px solid var(--light);
+  }
+  & > thead {
+    box-shadow: 0px 1px 3px -2px #000;
   }
   &__header__year-month th {
     text-align: center;
@@ -27,17 +32,25 @@
   }
   & > tbody td {
     text-align: center;
-    padding: 0.6rem 0.6rem;
+    padding: 0.4rem;
     font-size: 0.8rem;
     line-height: 1.6rem;
     cursor: pointer;
     transition: background ease-in-out 200ms;
     box-shadow: 0px;
     border-radius: 1rem;
-    &:hover {
+    position: relative;
+    z-index: 3;
+    & div {
+      border-radius: 50%;
+      height: 2rem;
+      width: 2rem;
+      line-height: 2rem;
+    }
+    & div:hover {
       // box-shadow: 0px 0px 3px 0px var(--dark);
-      background-color: var(--calendar-background-hover);
-      color: var(--calendar-color-hover);
+      background-color: var(--dark);
+      color: var(--light);
 
       // border-radius: 5px;
     }
@@ -51,16 +64,18 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
+    width: 50px;
   }
   &__year {
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: left;
     display: block;
   }
   &__month {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-align: left;
     display: block;
+    text-transform: capitalize;
   }
   .actual-date {
     background-color: var(--primary);
@@ -73,6 +88,24 @@
     color: var(--calendar-color-weekend) !important;
   }
   .weekend-date.different-month {
-    // color: var(--callendar-color-weekend) !important;
+    color: var(--light) !important;
+  }
+
+  .today {
+    position: absolute;
+    width: 2.2rem;
+    height: 2.2rem;
+    top: 5px;
+    left: 5px;
+    background-color: var(--calendar-today-bg);
+    color: var(--calendar-today-color);
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .date-selected {
+    background-color: var(--calendar-selected-bg);
+    color: var(--calendar-selected-color) !important;
+    border-radius: 1rem;
   }
 }
