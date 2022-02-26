@@ -1,3 +1,4 @@
+import { DateRange } from '../../global-components/calendar/DateRange';
 import { Component, OnInit } from '@angular/core';
 import documentation from 'src/app/global-components/calendar/documentation';
 
@@ -10,6 +11,7 @@ import documentation from 'src/app/global-components/calendar/documentation';
 export class SampleCalendarComponent implements OnInit {
 
   dictionary = documentation;
+  dateRange?: DateRange;
 
   constructor() { }
 

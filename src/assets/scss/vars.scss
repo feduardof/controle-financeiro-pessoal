@@ -15,21 +15,30 @@ $secodary: #636e72;
 $warning: #ffeaa7;
 $danger: #fab1a0;
 $success: #55efc4;
-$info: #74b9ff;
+$info: #0ce9ff;
 $light: #dfe6e9;
 $dark: #2d3436;
 
-$calendarBgHover: #55efc4; // #e8f0f3;
-$calendarColorHover: #2f2f30; // #e8f0f3;
+$calendarBgHover: #bec1c0; // #e8f0f3;
+$calendarColorHover: #000; // #e8f0f3;
 
 $calendarBgWeekend: #fff;
 $calendarColorWeekend: #838789;
 
-$calendarTodayBg: $success; // #16d388;
-$calendarTodayColor: #054231;
+$calendarTodayBg: lighten($primary, 40%); //#dfe6e9; // #16d388;
+$calendarTodayColor: #3d3d3d;
 
-$calendarSelectedBg: #2d3436;
-$calendarSelectedColor: #e1edf1;
+$calendarSelectedBg: lighten($success, 25%); // #dfe6e9;
+$calendarSelectedColor: #000;
+
+$calendarSelectedRangerBg: lighten($primary, 47%); // #dfe6e9;
+$calendarSelectedRangerColor: #000;
+
+$calendarSelectedRangerBeginBg: lighten($success, 25%); // #dfe6e9;
+$calendarSelectedRangerBeginColor: #000;
+
+$calendarSelectedRangerEndBg: lighten($success, 25%); // #dfe6e9;
+$calendarSelectedRangerEndColor: #000;
 
 :root {
   --primary: #{$primary};
@@ -55,4 +64,10 @@ $calendarSelectedColor: #e1edf1;
   --calendar-today-color: #{$calendarTodayColor};
   --calendar-selected-bg: #{$calendarSelectedBg};
   --calendar-selected-color: #{$calendarSelectedColor};
+  --calendar-selected-ranger-bg: #{$calendarSelectedRangerBg};
+  --calendar-selected-ranger-color: #{$calendarSelectedRangerColor};
+  --calendar-selected-ranger-begin-bg: #{$calendarSelectedRangerBeginBg};
+  --calendar-selected-ranger-begin-color: #{$calendarSelectedRangerBeginColor};
+  --calendar-selected-ranger-end-bg: #{$calendarSelectedRangerEndBg};
+  --calendar-selected-ranger-end-color: #{$calendarSelectedRangerEndColor};
 }

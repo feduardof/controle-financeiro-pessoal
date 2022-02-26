@@ -3,11 +3,12 @@
   border: 1px solid var(--light);
   transition: box-shadow ease-in-out 100ms, border-color ease-in-out 100ms;
   font-size: 0.9rem;
-  border-spacing: 5px;
+  // border-spacing: 5px;
   border-collapse: collapse;
   box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
+  border-spacing: 0px;
+  padding: 2px 0px;
 
-  max-width: 300px;
 
   &:hover {
     box-shadow: 0px 0px 0.5rem rgba(129, 134, 138, 0.1);
@@ -29,10 +30,14 @@
   &__header__day-of-week th {
     text-align: center;
     padding: 0.3rem 0.2rem;
+    width: calc(100% / 7);
+  }
+  &__max-width {
+    max-width: 300px;
   }
   & > tbody td {
     text-align: center;
-    padding: 0.4rem;
+    // padding: 0.4rem;
     font-size: 0.8rem;
     line-height: 1.6rem;
     cursor: pointer;
@@ -40,17 +45,25 @@
     box-shadow: 0px;
     border-radius: 1rem;
     position: relative;
-    z-index: 3;
+    // z-index: 3;
+    padding: 2px 0px;
     & div {
-      border-radius: 50%;
       height: 2rem;
-      width: 2rem;
+      // width: 2rem;
       line-height: 2rem;
+      border-radius: 10px;
     }
     & div:hover {
       // box-shadow: 0px 0px 3px 0px var(--dark);
-      background-color: var(--dark);
-      color: var(--light);
+      background-color: var(--calendar-background-hover);
+      color: var(--calendar-color-hover);
+      margin: 0px 5px;
+
+      // &.date-start-ranger,
+      // &.date-inside-ranger,
+      // &.date-end-ranger {
+      //   margin: 0px 0px;
+      // }
 
       // border-radius: 5px;
     }
@@ -92,20 +105,78 @@
   }
 
   .today {
-    position: absolute;
-    width: 2.2rem;
-    height: 2.2rem;
-    top: 5px;
-    left: 5px;
     background-color: var(--calendar-today-bg);
     color: var(--calendar-today-color);
-    border-radius: 50%;
-    z-index: 2;
+    margin: 0px 5px;
+    // border-radius: 25%;
+    // z-index: 2;
   }
 
   .date-selected {
     background-color: var(--calendar-selected-bg);
     color: var(--calendar-selected-color) !important;
     border-radius: 1rem;
+    margin: 0px 5px;
+  }
+
+  .date-start-ranger {
+    background-color: var(--calendar-selected-ranger-begin-bg);
+    color: var(--calendar-selected-ranger-begin-color);
+    margin: 0px 5px;
+    // border-top-left-radius: 10px;
+    // border-bottom-left-radius: 10px;
+
+    // border-top-right-radius: 0px !important;
+    // border-bottom-right-radius: 0px !important;
+
+    &::after {
+      content: " ";
+      width: 0;
+      height: 0;
+      border-top: 0.5rem solid transparent;
+      border-bottom: 0.5rem solid transparent;
+      border-left: 0.5rem solid var(--calendar-selected-ranger-begin-bg);
+      position: absolute;
+      right: 0rem;
+      top: 0.6rem;
+      z-index: 1;
+    }
+    &:hover::after {
+      border-left: 0.5rem solid var(--calendar-background-hover);
+    }
+  }
+  .date-inside-ranger {
+    background-color: var(--calendar-selected-ranger-bg);
+    color: var(--calendar-selected-ranger-color);
+    // border-radius: none !important;
+    border-radius: 0px !important;
+    line-height: 1.5rem !important;
+    height: 1.5rem !important;
+    margin: 0.25rem 0px;
+  }
+  .date-end-ranger {
+    background-color: var(--calendar-selected-ranger-end-bg);
+    color: var(--calendar-selected-ranger-end-color);
+    margin: 0px 5px;
+
+    // border-top-right-radius: 10px;
+    // border-bottom-right-radius: 10px;
+
+    // border-top-left-radius: 0px !important;
+    // border-bottom-left-radius: 0px !important;
+    &::before {
+      content: " ";
+      width: 0;
+      height: 0;
+      border-top: 0.5rem solid transparent;
+      border-bottom: 0.5rem solid transparent;
+      border-right: 0.5rem solid var(--calendar-selected-ranger-end-bg);
+      position: absolute;
+      left: 0rem;
+      top: 0.6rem;
+    }
+    &:hover::before {
+      border-right: 0.5rem solid var(--calendar-background-hover);
+    }
   }
 }

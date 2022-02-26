@@ -1,3 +1,4 @@
+import { SampleIconsComponent } from './sample-icons/sample-icons.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { GlobalComponentsModule } from './../global-components/global-components.module';
 import { SampleCalendarComponent } from './sample-calendar/sample-calendar.component';
@@ -12,7 +13,7 @@ import { SampleComponent } from './sample.component';
     CommonModule,
     GlobalComponentsModule
   ],
-  declarations: [SampleComponent, SampleBtnComponent, SampleMessageComponent, SampleCalendarComponent, DocumentationComponent],
+  declarations: [SampleComponent, SampleBtnComponent, SampleMessageComponent, SampleCalendarComponent, DocumentationComponent, SampleIconsComponent],
   exports: [ SampleComponent ]
 })
 export class SampleModule { }

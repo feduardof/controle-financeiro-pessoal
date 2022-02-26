@@ -8,5 +8,11 @@
 <p>
   <app-calendar [onlyMonthYear]="true"></app-calendar>
 </p>
+<h2 class="title border-bottom">Date ranger</h2>
+<p>
+  <app-calendar [(dateRange)]="dateRange" [modeRanger]="true"></app-calendar>
+  {{dateRange?.min | date}}
+  {{dateRange?.max | date}}
+</p>
 
 <app-documentation [dictionary]="dictionary"></app-documentation>

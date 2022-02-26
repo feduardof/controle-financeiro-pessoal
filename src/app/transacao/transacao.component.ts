@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { Transacao } from 'src/models/Transacao';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-transacao',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransacaoComponent implements OnInit {
 
-  constructor() { }
+  @Input() transacao: Transacao = new Transacao(this.currencyPipe);
+
+  constructor(private currencyPipe: CurrencyPipe) { }
 
   ngOnInit() {
+  }
+
+  onEdit(transacao: Transacao) {
+    this.transacao = new Transacao(this.currencyPipe).fromObject(transacao);
   }
 
 }

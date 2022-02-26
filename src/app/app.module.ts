@@ -1,3 +1,4 @@
+import { GlobalComponentsModule } from './global-components/global-components.module';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
@@ -22,7 +23,8 @@ registerLocaleData(ptBr,'pt')
     AppRoutingModule,
     FormsModule,
     SampleModule,
-    TransacaoModule
+    TransacaoModule,
+    GlobalComponentsModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'pt' }, {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'}, ],
   bootstrap: [AppComponent],

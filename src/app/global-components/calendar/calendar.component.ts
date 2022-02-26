@@ -1,4 +1,4 @@
-import { DateRanger } from './DateRanger';
+import { DateRange } from './DateRange';
 import { Component, OnInit, ChangeDetectionStrategy, Output, Input, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query,
     stagger, state, group } from '@angular/animations'
@@ -17,39 +17,37 @@ import { trigger, style, transition, animate, keyframes, query,
       transition(':leave', [
         animate('1000ms', style({ opacity: 0 }))
       ])
-      // transition('active', [
-      //     ,
-      //     animate('0.8s ease-out', style('*'))
-      //   ]),
-      // transition('remove', [
-      //     style({ color: 'red', fontSize: '50px' }),
-      //     animate('0.8s ease-out', style('*'))
-      //   ])
     ])
   ]
 })
 export class CalendarComponent implements OnInit {
 
-  private modeRanger = false;
+  @Input() modeRanger = false;
 
   @Input() date?: Date;
+  @Output() dateChange = new EventEmitter<Date>();
+
+  @Input() dateRange?: DateRange;
+  @Output() dateRangeChange = new EventEmitter<DateRange>();
+
   @Input() onlyMonthYear: boolean = false;
 
-  @Output() dateChange = new EventEmitter<Date>();
   @Output() monthChange = new EventEmitter<Date>();
 
-  @Output() delimiter?: DateRanger;
-  @Output() dateRange?: DateRanger;
+  @Output() delimiter?: DateRange;
 
   struct?: Date[][];
 
   showDate: Date = new Date();
 
+  nextIsMin = true;
+
+  editYear = false;
+
   constructor() { }
 
   ngOnInit(): void {
-    if (this.dateRange != null) {
-      this.modeRanger = true;
+    if (this.modeRanger) {
       if (this.dateRange?.min) {
         this.showDate = new Date(this.dateRange?.min);
       }
@@ -64,6 +62,10 @@ export class CalendarComponent implements OnInit {
   }
   get year() {
     return this.showDate.getFullYear();
+  }
+  set year(newYear) {
+    this.showDate = new Date(newYear, this.showDate.getMonth(), this.showDate.getDay());
+    // selectDate();
   }
 
   get firstDay() {
@@ -82,11 +84,17 @@ export class CalendarComponent implements OnInit {
     this.showDate = new Date(this.showDate.getFullYear(), this.showDate.getMonth() + 1, 1);
     this.mountStruct();
     this.monthChange.emit(this.showDate);
+    if(this.onlyMonthYear) {
+      this.selectDate(this.showDate);
+    }
   }
   previousMonth() {
     this.showDate = new Date(this.showDate.getFullYear(), this.showDate.getMonth() - 1, 1);
     this.mountStruct();
     this.monthChange.emit(this.showDate);
+    if(this.onlyMonthYear) {
+      this.selectDate(this.showDate);
+    }
   }
 
   mountStruct() {
@@ -96,13 +104,13 @@ export class CalendarComponent implements OnInit {
     let currentDate = this.firstDay;
     currentDate.setDate(currentDate.getDate() - this.firstDay.getDay())
     let plusOneDate = () => currentDate.setDate(currentDate.getDate() + 1);
-    let thoseAreDays = true;
+    // let thoseAreDays = true;
 
     do {
       let week: (Date) [] = [];
       daysOfWeek.forEach((i) => {
         week.push(new Date(currentDate));
-        thoseAreDays = !(currentDate.getMonth() != this.firstDay.getMonth());
+        // thoseAreDays = !(currentDate.getMonth() != this.firstDay.getMonth());
         plusOneDate();
       });
       struct.push(week)
@@ -111,9 +119,38 @@ export class CalendarComponent implements OnInit {
     this.struct = struct;
   }
 
-  selectDate(date : Date) {
-    this.date = date;
-    this.dateChange.emit(date);
+  selectDate(date: Date) {
+
+    if (this.modeRanger) {
+      if (!this.dateRange) {
+        this.dateRange = {
+          min: date,
+        };
+        this.nextIsMin = !this.nextIsMin;
+      }
+      else if (this.nextIsMin) {
+        this.dateRange.min = date;
+        if ( this.dateRange.max && this.dateRange.min.getTime() > this.dateRange.max.getTime()) {
+          this.dateRange.max = undefined;
+        }
+        this.nextIsMin = !this.nextIsMin;
+      }
+      else {
+        if (this.dateRange.min && this.dateRange.min.getTime() > date.getTime() ) {
+          this.dateRange.max = this.dateRange.min;
+          this.dateRange.min = date;
+        } else {
+          this.dateRange.max = date;
+          this.nextIsMin = !this.nextIsMin;
+        }
+      }
+
+      this.dateRangeChange.emit(this.dateRange);
+    } else {
+      this.date = date;
+      this.dateChange.emit(date);
+    }
+
   }
 
   private equals(dateA : Date, dateB : Date) : Boolean {
@@ -122,8 +159,8 @@ export class CalendarComponent implements OnInit {
       dateA.getDate() == dateB.getDate();
   }
 
-  private isBetween(date: Date, dateRanger: DateRanger): Boolean {
-    return dateRanger.min.getTime() < date.getTime() && dateRanger.max.getTime() > date.getTime();
+  private isBetween(date: Date, dateRange: DateRange): Boolean {
+    return dateRange.min != undefined && dateRange.min.getTime() < date.getTime() && dateRange.max != undefined && dateRange.max.getTime() > date.getTime();
   }
 
   isToday(day : Date) {
@@ -142,7 +179,7 @@ export class CalendarComponent implements OnInit {
   }
 
   isStartRanger(day: Date) {
-    if (this.dateRange == null) return false;
+    if (this.dateRange == null || this.dateRange.min == undefined) return false;
     return this.equals(day,this.dateRange.min);
   }
   isInsideRanger(day: Date) {
@@ -151,7 +188,7 @@ export class CalendarComponent implements OnInit {
   }
 
   isEndRanger(day: Date) {
-    if (this.dateRange == null) return false;
+    if (this.dateRange == null || this.dateRange.max == undefined) return false;
     return this.equals(day,this.dateRange.max);
   }
 

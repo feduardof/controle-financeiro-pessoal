@@ -1,11 +1,11 @@
 
 
-<main class="main">
+<main class="main-3">
   <div class="main__side-left">
-    <app-formulario></app-formulario>
+    <app-formulario [(transacao)]="transacao"></app-formulario>
   </div>
   <div class="main__center">
-    <app-lista></app-lista>
+    <app-lista (editEvent)="onEdit($event)" ></app-lista>
   </div>
 
   <div class="main__side-rigth">

@@ -1,8 +1,15 @@
-<table class="calendar">
+<table class="calendar" [class.calendar__max-width]="!onlyMonthYear">
   <thead>
     <tr class="calendar__header__year-month" >
       <th (click)="previousMonth()" class="calendar__change-month"> &#x226A; </th>
-      <th colspan="5"><span class="calendar__month">{{month}}</span> <span class="calendar__year">{{year}}</span></th>
+      <th colspan="5">
+        <span class="calendar__month">{{month}}</span>
+        <div class="calendar__year">
+          <span (click)="editYear=true" *ngIf="!editYear">{{year}}</span>
+          <input type="text" name="ano" [(ngModel)]="year" *ngIf="editYear" >
+        </div>
+
+      </th>
       <th (click)="nextMonth()" class="calendar__change-month"> &#x226B; </th>
     </tr>
     <tr class="calendar__header__day-of-week" *ngIf="!onlyMonthYear">

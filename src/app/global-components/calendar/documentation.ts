@@ -9,17 +9,23 @@ export default {
       "event": "dateChange",
       "params": "date",
       "description": "On the date is selected"
+    },
+    {
+      "event": "dateRangeChange",
+      "params": "DateRange",
+      "description": "On the one date of range is selected"
     }
+
   ],
   "outputs" : [
     {
       "name" : "delimiter",
-      "type" : "DateRanger",
+      "type" : "DateRange",
       "description" : "Define the range that is possible set the date"
     },
     {
       "name" : "dateRange",
-      "type" : "DateRanger",
+      "type" : "DateRange",
       "description" : "Define the range selected by user"
     }
   ]

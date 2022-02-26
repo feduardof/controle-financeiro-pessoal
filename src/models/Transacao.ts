@@ -1,32 +1,66 @@
 import { CurrencyPipe } from '@angular/common';
+import { Categoria } from './Categoria';
 
 export class Transacao {
+  id : String = "";
   descricao: string = "";
-  private _valor: number = 0.0;
+  valorNumerico: number = 0.0;
   data: Date = new Date();
+  isEntrada: boolean = false;
+  // tipo: TiposTransacao = TiposTransacao.CORRENTE;
+  categoria: Categoria = new Categoria();
 
-  constructor(private currencyPipe : CurrencyPipe){}
+  constructor(private currencyPipe : CurrencyPipe){ }
 
   get valor() : number {
-    return this._valor;
+    return this.valorNumerico;
   }
 
   set valor(valor: number) {
     let nb: any = valor.toString().match(/\d+/g)?.join("");
     nb = !isNaN(nb)  ? (parseFloat(nb) / 100 ).toFixed(2) : 0;
-    this._valor = parseFloat(nb);
+    this.valorNumerico = parseFloat(nb);
   }
 
 
   get valorFormatado() : string | null {
-    return this.currencyPipe.transform(this._valor);
+    return this.currencyPipe.transform(this.valorNumerico);
   }
 
   set valorFormatado(valor: string | null) {
     let nb: any = valor?.match(/\d+/g)?.join("");
     nb = !isNaN(nb)  ? (parseFloat(nb) / 100 ).toFixed(2) : 0;
-    this._valor = parseFloat(nb);
+    this.valorNumerico = parseFloat(nb);
+  }
+
+  fromObject(obj: any) : Transacao {
+    this.descricao = obj.descricao;
+    this.valorNumerico = obj.valorNumerico;
+    this.data = new Date(obj.data);
+    this.isEntrada = obj.isEntrada;
+    // this.tipo = obj.tipo;
+    this.id = obj.id;
+    return this;
+  }
+
+  static fromArray(currencyPipe : CurrencyPipe, list : Array<any>) : Array<Transacao> {
+    var retorno : Array<Transacao> = [];
+    list.forEach(e => {
+      var t = new Transacao(currencyPipe);
+      retorno.push(t.fromObject(e));
+    })
+
+    return retorno;
+
   }
 
 
 }
+
+
+export enum TiposTransacao {
+  MENSAL = "Mensal",
+  CORRENTE = "Corrente",
+}
+
+

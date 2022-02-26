@@ -6,19 +6,41 @@
     padding: 0.5rem 0.5rem;
     display: grid;
     grid-template-areas: "a b c";
+    font-size: 0.85em;
     grid-template-columns: 70px 1fr 150px;
+    cursor: pointer;
 
     &:not(:first-child) {
       border-top: 1px solid var(--light);
     }
+    &:hover {
+      background-color: #fdfdfd;
+    }
+
     &__data {
       grid-area: a;
+      // color: #666;
     }
     &__descricao {
       grid-area: b;
     }
     &__valor {
       grid-area: c;
+      font-weight: bold;
+    }
+    &__entrada {
+      color: #01a314;
+      &:hover {
+        font-weight: bold;
+        color: #007b0e;
+      }
+    }
+    &__saida {
+      color: #c22a04;
+      &:hover {
+        font-weight: bold;
+        color: #911d00;
+      }
     }
   }
   &__total {
@@ -26,7 +48,7 @@
     display: grid;
     grid-template-areas: "b c";
     grid-template-columns: 1fr 150px;
-    background-color: var(--light);
+    background-color: #e0e7e9;
     font-weight: bold;
 
     &:not(:first-child) {

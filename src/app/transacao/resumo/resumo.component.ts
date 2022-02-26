@@ -13,8 +13,14 @@ export class ResumoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get somatorio() {
-    return this.transacoesService.somatorioFormatado;
+  get somatorioGasto() {
+    return this.transacoesService.somatorioGastoFormatado;
+  }
+  get somatorioRecebido() {
+    return this.transacoesService.somatorioRecebidoFormatado;
+  }
+  get resto() {
+    return this.transacoesService.resto
   }
 
 }

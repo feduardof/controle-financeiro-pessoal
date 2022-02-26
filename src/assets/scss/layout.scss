@@ -26,16 +26,22 @@ section {
   grid-area: h;
 }
 
-.main {
+.main-3 {
   grid-area: m;
   display: grid;
   grid-template-columns: 1fr 300px 580px 300px 1fr;
   grid-template-areas: "z l c r y";
+  min-height: 100%;
 }
 
-.content {
-  max-width: 1400px;
-  margin-left: calc(calc(100% - 1400px) / 2);
+.main-1 {
+  grid-area: m;
+  display: grid;
+  grid-template-columns: 1fr 1180px 1fr;
+  grid-template-areas: "z c y";
+
+  // max-width: 1400px;
+  // margin-left: calc(calc(100% - 1400px) / 2);
 }
 
 router-outlet {
