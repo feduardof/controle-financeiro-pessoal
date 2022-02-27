@@ -4,6 +4,10 @@ import { CurrencyPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Transacao } from 'src/models/Transacao';
 
+
+interface ArrayEvents {
+  [key: string ]: Array<Function>
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +18,7 @@ export class TransacoesService {
   // private somatorioRecebido: number = 0;
   // private somatorioGasto: number = 0;
   private monthYear: Date = new Date();
+  private events: ArrayEvents = {};
 
   constructor(private currencyPipe : CurrencyPipe, private storage : StorageService, private uuidService : UuidService) {
     this.load();
@@ -37,6 +42,12 @@ export class TransacoesService {
     if(transacoes) {
       this.listaTransacoes = Transacao.fromArray(this.currencyPipe, transacoes);
     }
+  }
+
+  delete(transacao : Transacao) {
+    let index = this.listaTransacoes.findIndex(e => e.id == transacao.id);
+    this.listaTransacoes.splice(index,1);
+    this.save();
   }
 
   save() {

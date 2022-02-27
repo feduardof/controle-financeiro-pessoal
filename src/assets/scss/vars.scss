@@ -1,5 +1,5 @@
 // $primary: #0573c1;
-// $secodary: #5a5a5a;
+// $secondary: #5a5a5a;
 
 // $warning: #f2b648;
 // $danger: #df2f2c;
@@ -10,12 +10,20 @@
 
 // https://flatuicolors.com/palette/us
 $primary: #0984e3;
-$secodary: #636e72;
+$secondary: #636e72;
 
-$warning: #ffeaa7;
-$danger: #fab1a0;
-$success: #55efc4;
-$info: #0ce9ff;
+// $warning: #ffeaa7;
+// $danger: #fab1a0;
+// $success: #55efc4;
+// $info: #0ce9ff;
+// $light: #dfe6e9;
+// $dark: #2d3436;
+
+$warning: #ffc626;
+$danger: #ff6d4b;
+$success: #26fd68;
+$successOutline: #09b33d;
+$info: #0cc7ff;
 $light: #dfe6e9;
 $dark: #2d3436;
 
@@ -42,11 +50,12 @@ $calendarSelectedRangerEndColor: #000;
 
 :root {
   --primary: #{$primary};
-  --secodary: #{$secodary};
+  --secondary: #{$secondary};
 
   --warning: #{$warning};
   --danger: #{$danger};
   --success: #{$success};
+  --success-outline: #{$successOutline};
   --info: #{$info};
   --light: #{$light};
   --dark: #{$dark};

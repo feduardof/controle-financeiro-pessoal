@@ -32,10 +32,10 @@
   color: var(--light);
   @include btnHover($primary);
 }
-.btn-secodary {
-  background-color: var(--secodary);
+.btn-secondary {
+  background-color: var(--secondary);
   color: var(--light);
-  @include btnHover($secodary);
+  @include btnHover($secondary);
 }
 
 .btn-warning {
@@ -90,11 +90,11 @@
   background-color: #FFF;
   @include btnOutline($primary);
 }
-.btn-secodary-outline {
-  border: 1px solid var(--secodary);
-  color: var(--secodary);
+.btn-secondary-outline {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
   background-color: #FFF;
-  @include btnOutline($secodary);
+  @include btnOutline($secondary);
 }
 
 .btn-warning-outline {
@@ -112,10 +112,10 @@
 }
 
 .btn-success-outline {
-  border: 1px solid var(--success);
-  color: var(--success);
+  border: 1px solid var(--success-outline);
+  color: var(--success-outline);
   background-color: #FFF;
-  @include btnOutline($success);
+  @include btnOutline($successOutline);
 }
 
 .btn-info-outline {

@@ -1,6 +1,6 @@
 import { Transacao, TiposTransacao } from './../../../models/Transacao';
 import { TransacoesService } from './../../../services/transacoes.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
-export class FormularioComponent implements OnInit {
+export class FormularioComponent implements OnInit, OnChanges {
 
   @Input() transacao: Transacao = new Transacao(this.currencyPipe);
   @Output() transacaoChange = new EventEmitter<Transacao>();
@@ -18,8 +18,10 @@ export class FormularioComponent implements OnInit {
   @Input() diaMes: number = 1;
 
 
-  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe) {
+  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.tipoTransacao = TiposTransacao.CORRENTE;
   }
 
   ngOnInit() {
@@ -27,8 +29,6 @@ export class FormularioComponent implements OnInit {
 
   private diffMonths(dt1 : Date, dt2 : Date) {
     return ((dt2.getFullYear() - dt1.getFullYear()) * 12) - (dt1.getMonth() - 1) + dt2.getMonth();
-
-    // return (dt2.getFullYear() + dt2.getMonth()) - (dt1.getFullYear() + dt1.getMonth());
   }
 
 
@@ -91,7 +91,8 @@ export class FormularioComponent implements OnInit {
   }
 
   onDelete() {
-
+    this.transacaoService.delete(this.transacao);
+    this.onClear();
   }
 
 

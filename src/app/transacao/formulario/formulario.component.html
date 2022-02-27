@@ -62,12 +62,11 @@
     <button class="btn btn-flat btn-primary">
       <span class="icon-cloud-upload-outline"></span>
     </button>
-    <button type="button" (click)="onClear()" class="btn btn-flat btn-warning">
+    <button type="button" (click)="onClear()" class="btn btn-flat btn-warning-outline">
       <span class="icon-close-outline"></span>
     </button>
-    <button *ngIf="transacao.id" type="button" (click)="onDelete()" class="btn btn-flat btn-danger">
-
-      Remover
+    <button *ngIf="transacao.id" type="button" (click)="onDelete()" class="btn btn-flat btn-danger-outline">
+      <span class="icon-trash-outline"></span>
     </button>
   </div>
 
