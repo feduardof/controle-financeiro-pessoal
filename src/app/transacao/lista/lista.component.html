@@ -9,9 +9,15 @@
     <li *ngFor="let transacao of transacoes" class="transacoes__item" (click)="onEdit(transacao)"
     [class.transacoes__item__entrada]="transacao.isEntrada"
     [class.transacoes__item__saida]="!transacao.isEntrada"
+    [class.transacoes__item__saida__paga]="!transacao.isEntrada && transacao.isPago"
     >
-      <span class="transacoes__item__data">{{transacao.data | date : 'dd/MM/YY' }}</span>
-      <span class="transacoes__item__descricao">{{transacao.descricao }}</span>
+    <span class="transacoes__item__data" >{{transacao.data | date : 'dd/MM/YY' }}</span>
+    <span class="transacoes__item__descricao">
+        <span class="label label-danger" *ngIf="!transacao.isEntrada && !transacao.isPago">Pendente</span>
+
+        <i [icon]="transacao.categoria.icon"></i>
+        {{transacao.descricao }}
+      </span>
       <span class="transacoes__item__valor text-right">{{transacao.valor | currency }}</span>
     </li>
     <li *ngIf="transacoes.length != 0" class="transacoes__total">

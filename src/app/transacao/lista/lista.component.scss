@@ -36,10 +36,13 @@
       }
     }
     &__saida {
-      color: #c22a04;
+      color: rgba(194, 42, 4,0.4);
       &:hover {
         font-weight: bold;
         color: #911d00;
+      }
+      &__paga {
+        color: rgba(194, 42, 4,1)
       }
     }
   }

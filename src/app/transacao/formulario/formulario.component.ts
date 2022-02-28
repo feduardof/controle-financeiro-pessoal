@@ -1,3 +1,4 @@
+import { CategoriaService } from './../../../services/categoria.service';
 import { Transacao, TiposTransacao } from './../../../models/Transacao';
 import { TransacoesService } from './../../../services/transacoes.service';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
@@ -12,13 +13,16 @@ export class FormularioComponent implements OnInit, OnChanges {
 
   @Input() transacao: Transacao = new Transacao(this.currencyPipe);
   @Output() transacaoChange = new EventEmitter<Transacao>();
-  @Input() tipoTransacao: TiposTransacao = TiposTransacao.CORRENTE;
-  @Input() dataInicio: Date = new Date();
-  @Input() dataFim: Date = new Date();
-  @Input() diaMes: number = 1;
+  tipoTransacao: TiposTransacao = TiposTransacao.CORRENTE;
+  dataInicio: Date = new Date();
+  dataFim: Date = new Date();
+  diaMes: number = 1;
 
+  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe, private categoriaService : CategoriaService) {}
 
-  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe) {}
+  get categorias() {
+    return this.categoriaService.CATEGORIAS;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.tipoTransacao = TiposTransacao.CORRENTE;

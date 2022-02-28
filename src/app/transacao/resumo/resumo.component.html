@@ -1,8 +1,25 @@
 
 <h1 class="title">Resumo </h1>
 <div>
-  Gasto: {{somatorioGasto}} <br>
-  Recebido: {{somatorioRecebido}} <br>
+  <div class="resumo__entrada">Entrada:</div>
+  <div class="resumo__entrada__valor">{{somatorioRecebido}}</div>
+
+  <div class="resumo__saida">Saída:</div>
+  <div class="resumo__saida__valor">{{somatorioGasto}}</div>
+
+  <details title="Oi">
+    <summary>Detalhamento</summary>
+    <div class="resumo__saida" *ngFor="let categoria of categorias | keyvalue">
+
+      <i [icon]="categoria.value.icon"></i>
+      {{categoria.value.nome}}
+      <span class="resumo__saida__valor">
+        {{ obterSomatorioCategoria(categoria.value) }}
+      </span>
+
+    </div>
+  </details>
+
   Resto: {{resto}} <br>
 
 </div>

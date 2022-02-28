@@ -30,9 +30,14 @@
     <input id="transacao.valor" type="text" (keyup)="transformAmount($event)" name="valor" [(ngModel)]="transacao.valorFormatado" >
   </div>
 
-  <div>
+  <div *ngIf="!transacao.isPago">
     <input id="transacao.idEntrada" name="transacao.idEntrada" type="checkbox" [(ngModel)]="transacao.isEntrada" >
     <label for="transacao.idEntrada"  >Entrada?</label>
+  </div>
+
+  <div *ngIf="!transacao.isEntrada">
+    <input id="transacao.isPago" name="transacao.isPago" type="checkbox" [(ngModel)]="transacao.isPago" >
+    <label for="transacao.isPago"  >Pago?</label>
   </div>
 
   <div *ngIf="tipoTransacao == 'Corrente'">
@@ -42,6 +47,7 @@
     </div>
 
   </div>
+
   <div *ngIf="tipoTransacao == 'Mensal'">
     <div>
       <label for="transacao.dataInicio"><span class="icon-calendar-outline"></span> Mês Inicio</label>
@@ -55,6 +61,21 @@
       <label for="diaMes"><span class="icon-calendar-outline"></span> Dia do Mês</label>
       <input type="number" name="diaMes" id="diaMes" maxlength="2" [(ngModel)]="diaMes">
     </div>
+  </div>
+
+  <div>
+    <label for="transacao.dataInicio"><span class="icon-calendar-outline"></span> Categórias</label>
+
+
+    <ng-template ngFor let-categoria [ngForOf]="categorias | keyvalue">
+      <input [id]="'categoria.' + categoria.key" class="btn-radio" type="radio" name="tipoTransacao[]" [(ngModel)]="transacao.categoria.nome" [value]="categoria.value.nome">
+      <label [for]="'categoria.' + categoria.key" [icon]="categoria.value.icon" [title]="categoria.value.nome">
+      </label>
+    </ng-template>
+    <br>
+    {{transacao.categoria.nome}}
+
+
   </div>
 
 

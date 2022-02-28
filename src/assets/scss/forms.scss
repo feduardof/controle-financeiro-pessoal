@@ -63,11 +63,9 @@ input[type="radio"] {
     margin-top: 0rem;
   }
 }
+
+input[type="checkbox"],
 input[type="radio"] {
-  border-radius: 50%;
-  &::before {
-    border-radius: 50%;
-  }
 
   &.btn-radio {
     display: none;

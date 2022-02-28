@@ -1,0 +1,19 @@
+.resumo__saida {
+  padding: 5px 2px;
+  &:nth-child(even) {
+    background-color: var(--light);
+  }
+  &:nth-child(odd) {
+    background-color: #FFF;
+  }
+}
+
+.resumo__entrada__valor,
+.resumo__saida__valor {
+  text-align: right;
+  display: inline-block;
+  background-color: var(--light);
+
+
+}
+

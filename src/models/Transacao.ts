@@ -1,4 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
+import { CategoriaService } from 'src/services/categoria.service';
 import { Categoria } from './Categoria';
 
 export class Transacao {
@@ -9,6 +10,7 @@ export class Transacao {
   isEntrada: boolean = false;
   // tipo: TiposTransacao = TiposTransacao.CORRENTE;
   categoria: Categoria = new Categoria();
+  isPago: boolean = false;
 
   constructor(private currencyPipe : CurrencyPipe){ }
 
@@ -33,6 +35,15 @@ export class Transacao {
     this.valorNumerico = parseFloat(nb);
   }
 
+  beforeSave() {
+    this.loadCateoria(this);
+  }
+
+  loadCateoria(obj : any) {
+    if (typeof obj.categoria == "string") this.categoria = new CategoriaService().load(obj.categoria);
+    else this.categoria = new CategoriaService().load(obj.categoria.nome);
+  }
+
   fromObject(obj: any) : Transacao {
     this.descricao = obj.descricao;
     this.valorNumerico = obj.valorNumerico;
@@ -40,6 +51,8 @@ export class Transacao {
     this.isEntrada = obj.isEntrada;
     // this.tipo = obj.tipo;
     this.id = obj.id;
+    this.isPago = obj.isPago;
+    this.loadCateoria(obj);
     return this;
   }
 

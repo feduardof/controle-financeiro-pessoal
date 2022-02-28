@@ -1,3 +1,5 @@
+import { Categoria } from './../../../models/Categoria';
+import { CategoriaService } from 'src/services/categoria.service';
 import { TransacoesService } from './../../../services/transacoes.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumoComponent implements OnInit {
 
-  constructor(private transacoesService : TransacoesService) { }
+  constructor(private transacoesService : TransacoesService, private categoriaService : CategoriaService) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +23,14 @@ export class ResumoComponent implements OnInit {
   }
   get resto() {
     return this.transacoesService.resto
+  }
+
+  get categorias() {
+    return this.categoriaService.CATEGORIAS;
+  }
+
+  obterSomatorioCategoria(categoria : Categoria)  {
+    return this.transacoesService.somatorioGastoCategoria(categoria);
   }
 
 }

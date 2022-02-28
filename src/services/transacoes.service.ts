@@ -3,6 +3,7 @@ import { StorageService } from './storage.service';
 import { CurrencyPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Transacao } from 'src/models/Transacao';
+import { Categoria } from 'src/models/Categoria';
 
 
 interface ArrayEvents {
@@ -25,6 +26,7 @@ export class TransacoesService {
   }
 
   add(transacao: Transacao) {
+    transacao.beforeSave();
     if(transacao.id == "") {
       transacao.id = this.uuidService.generateUUID();
       this.listaTransacoes.push(transacao);
@@ -86,6 +88,11 @@ export class TransacoesService {
   private inMonthYear(date : Date) : Boolean {
     return date.getFullYear() == this.monthYear.getFullYear() &&
       date.getMonth() == this.monthYear.getMonth();
+  }
+
+  somatorioGastoCategoria(categoria: Categoria) : string | null {
+    var valor = this.transacoes.filter((e) => e.categoria.nome == categoria.nome).reduce((c,t2) => c + t2.valor, 0);
+    return this.currencyPipe.transform(valor);
   }
 
 
