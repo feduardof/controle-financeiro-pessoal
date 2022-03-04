@@ -12,10 +12,6 @@ export class IconDirective {
 
   }
 
-  @HostListener('mouseenter') onLoad() {
-    console.log("Carregando");
-  }
-
   ngOnInit(): void {
     if(this.icon) {
       this.el.nativeElement.classList.add("icon-"+this.getValue(this.icon));

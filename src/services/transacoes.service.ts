@@ -1,3 +1,4 @@
+import { CategoriaService } from 'src/services/categoria.service';
 import { UuidService } from './uuid.service';
 import { StorageService } from './storage.service';
 import { CurrencyPipe } from '@angular/common';
@@ -20,7 +21,7 @@ export class TransacoesService {
   private monthYear: Date = new Date();
   private events: ArrayEvents = {};
 
-  constructor(private currencyPipe : CurrencyPipe, private storage : StorageService, private uuidService : UuidService) {
+  constructor(private currencyPipe : CurrencyPipe, private storage : StorageService, private uuidService : UuidService, private categoriaService: CategoriaService) {
     this.load();
   }
 
@@ -38,11 +39,15 @@ export class TransacoesService {
   }
 
   adicionarRestoMes(resto: number, dataMes : Date) {
-    let transacao : Transacao | undefined = this.loadTransacaoRestoMesAnterior(dataMes);
+    let transacao : Transacao | undefined = this.loadTransacaoRestoMes(dataMes);
 
     if(resto) {
       transacao.valor = resto;
     }
+    if(dataMes) {
+      transacao.data = dataMes;
+    }
+    this.add(transacao);
   }
 
   load() {
@@ -53,13 +58,15 @@ export class TransacoesService {
     }
   }
 
-  loadTransacaoRestoMesAnterior(data : Date) : Transacao {
+  loadTransacaoRestoMes(data : Date) : Transacao {
     let transacao = this.listaTransacoes.filter((e) => this.inMonthYear(e.data, data)).find((e) => e.isTotalUltimoMes);
     if(transacao == undefined) {
       transacao = new Transacao(this.currencyPipe);
       transacao.isTotalUltimoMes = true;
       transacao.isEntrada = true;
     }
+    transacao.descricao = "Sobras de "+data.toLocaleString('pt-BR', { month: 'long' })+" de "+data.getFullYear();
+    transacao.categoria = this.categoriaService.CATEGORIAS.ENTRADA;
     return transacao;
   }
 

@@ -20,7 +20,7 @@ export class ListaComponent implements OnInit {
   }
 
   get transacoes() : Array<Transacao> {
-    return this.transacoesService.transacoes;
+    return this.transacoesService.transacoes.sort((a,b) => { return a.data.getTime() - b.data.getTime(); } );
   }
 
   get resto() {
