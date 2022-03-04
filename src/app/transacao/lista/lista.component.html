@@ -13,16 +13,21 @@
     >
     <span class="transacoes__item__data" >{{transacao.data | date : 'dd/MM/YY' }}</span>
     <span class="transacoes__item__descricao">
-        <span class="label label-danger" *ngIf="!transacao.isEntrada && !transacao.isPago">Pendente</span>
 
         <i [icon]="transacao.categoria.icon"></i>
         {{transacao.descricao }}
+        <span class="label-sm label-danger" *ngIf="!transacao.isEntrada && !transacao.isPago">Pendente</span>
       </span>
       <span class="transacoes__item__valor text-right">{{transacao.valor | currency }}</span>
     </li>
     <li *ngIf="transacoes.length != 0" class="transacoes__total">
-      <span class="transacoes__total__descricao">Total</span>
-      <span class="transacoes__total__valor text-right">{{resto}}</span>
+      <span class="transacoes__total__descricao">
+        Total
+      </span>
+      <span class="transacoes__total__valor text-right">
+        <button type="button" class="btn btn-sm btn-warning" icon="SEND" (click)="registrarTotalNoProximoMes()"></button>
+        {{resto}}
+      </span>
 
     </li>
     <li *ngIf="transacoes.length == 0">

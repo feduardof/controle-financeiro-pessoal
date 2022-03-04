@@ -6,6 +6,18 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.8em;
+  margin-right: 4px;
+}
+
+.label-sm {
+  border-radius: 3px;
+  background-color: #EEE;
+  padding: 1px 3px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.6em;
+  margin-right: 4px;
 }
 
 .label-danger {

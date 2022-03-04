@@ -11,6 +11,8 @@ export class ListaComponent implements OnInit {
 
   @Output() editEvent: EventEmitter<Transacao> = new EventEmitter();
 
+  mesAtual : Date = new Date();
+
   constructor(private transacoesService : TransacoesService) { }
 
   ngOnInit(): void {
@@ -31,7 +33,34 @@ export class ListaComponent implements OnInit {
 
 
   onMonthChange(newDate: Date) {
-    this.transacoesService.setMonthYear(newDate)
+    this.transacoesService.setMonthYear(newDate);
+    this.mesAtual = newDate;
+  }
+
+  registrarTotalNoProximoMes() {
+    let dataMes = new Date(this.mesAtual.getFullYear(), this.mesAtual.getMonth() + 1, 1);
+    let valorNumerico : number;
+    if(this.resto) {
+      let nb: any = this.resto.toString().match(/\d+/g)?.join("");
+      nb = !isNaN(nb)  ? (parseFloat(nb) / 100 ).toFixed(2) : 0;
+      valorNumerico = parseFloat(nb);
+    } else {
+      valorNumerico = 0;
+    }
+    this.transacoesService.adicionarRestoMes(valorNumerico, dataMes);
+  }
+
+  atualizarValor() {
+    let dataMes = new Date(this.mesAtual.getFullYear(), this.mesAtual.getMonth(), 1);
+    let valorNumerico : number;
+    // if(this.resto) {
+    //   let nb: any = this.resto.toString().match(/\d+/g)?.join("");
+    //   nb = !isNaN(nb)  ? (parseFloat(nb) / 100 ).toFixed(2) : 0;
+    //   valorNumerico = parseFloat(nb);
+    // } else {
+    //   valorNumerico = 0;
+    // }
+    // this.transacoesService.adicionarRestoMes(valorNumerico, dataMes);
   }
 
 }

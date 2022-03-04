@@ -14,7 +14,6 @@ interface ArrayEvents {
 })
 export class TransacoesService {
 
-
   private listaTransacoes: Array<Transacao> = [];
   // private somatorioRecebido: number = 0;
   // private somatorioGasto: number = 0;
@@ -38,12 +37,30 @@ export class TransacoesService {
     this.save();
   }
 
+  adicionarRestoMes(resto: number, dataMes : Date) {
+    let transacao : Transacao | undefined = this.loadTransacaoRestoMesAnterior(dataMes);
+
+    if(resto) {
+      transacao.valor = resto;
+    }
+  }
+
   load() {
     var transacoes = this.storage.load(this.baseName) as Array<any>;
     this.listaTransacoes = [];
     if(transacoes) {
       this.listaTransacoes = Transacao.fromArray(this.currencyPipe, transacoes);
     }
+  }
+
+  loadTransacaoRestoMesAnterior(data : Date) : Transacao {
+    let transacao = this.listaTransacoes.filter((e) => this.inMonthYear(e.data, data)).find((e) => e.isTotalUltimoMes);
+    if(transacao == undefined) {
+      transacao = new Transacao(this.currencyPipe);
+      transacao.isTotalUltimoMes = true;
+      transacao.isEntrada = true;
+    }
+    return transacao;
   }
 
   delete(transacao : Transacao) {
@@ -65,7 +82,7 @@ export class TransacoesService {
   }
 
   get transacoes() {
-    return this.listaTransacoes.filter((e) => this.inMonthYear(e.data));
+    return this.listaTransacoes.filter((e) => this.inMonthYear(e.data, this.monthYear));
   }
   get somatorioGasto() : number {
     return this.transacoes.filter((e) => !e.isEntrada).reduce((c,t2) => c + t2.valor, 0);
@@ -85,10 +102,11 @@ export class TransacoesService {
     return this.currencyPipe.transform(this.somatorioRecebido - this.somatorioGasto);
   }
 
-  private inMonthYear(date : Date) : Boolean {
-    return date.getFullYear() == this.monthYear.getFullYear() &&
-      date.getMonth() == this.monthYear.getMonth();
+  private inMonthYear(date : Date, monthYear: Date) : Boolean {
+    return date.getFullYear() == monthYear.getFullYear() &&
+      date.getMonth() == monthYear.getMonth();
   }
+
 
   somatorioGastoCategoria(categoria: Categoria) : string | null {
     var valor = this.transacoes.filter((e) => e.categoria.nome == categoria.nome).reduce((c,t2) => c + t2.valor, 0);

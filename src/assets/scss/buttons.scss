@@ -12,6 +12,11 @@
   --ggs: 0.8;
   .icon {
   }
+  &-sm {
+    margin: 0rem 0.2rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
 }
 .btn-flat {
   border-radius: 0;

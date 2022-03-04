@@ -11,6 +11,7 @@ export class Transacao {
   // tipo: TiposTransacao = TiposTransacao.CORRENTE;
   categoria: Categoria = new Categoria();
   isPago: boolean = false;
+  isTotalUltimoMes: boolean = false;
 
   constructor(private currencyPipe : CurrencyPipe){ }
 
@@ -52,6 +53,7 @@ export class Transacao {
     // this.tipo = obj.tipo;
     this.id = obj.id;
     this.isPago = obj.isPago;
+    this.isTotalUltimoMes = obj.isTotalUltimoMes;
     this.loadCateoria(obj);
     return this;
   }
