@@ -1,0 +1,128 @@
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  display: block;
+}
+
+input,
+select {
+  border: 1px solid var(--light);
+  padding: 0.5rem 1rem;
+  outline: none;
+  transition: background-color ease-in-out 500ms, border-color ease-in-out 500ms;
+  font-size: 1rem;
+  background-color: lighten($color: $light, $amount: 7);
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  appearance: none;
+  &:focus {
+    border-color: var(--info);
+    background-color: lighten($color: $light, $amount: 10);
+    box-shadow: 0px 0px 0px 3px rgba($primary, 0.1);
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0.4rem;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: -1px;
+  position: relative;
+  background-color: #fff;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    // background-color: var(--light);
+    top: 16%;
+    left: 18%;
+    transition: all 400ms ease;
+    opacity: 0;
+  }
+  &:checked::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: lighten($color: $primary, $amount: 10);
+    top: 16%;
+    left: 18%;
+    opacity: 1;
+  }
+  & + label {
+    display: inline-block;
+    margin-top: 0rem;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+
+  &.btn-radio {
+    display: none;
+    &+label {
+      background-color: var(--light);
+      border: 0px solid;
+      padding: 0.6rem 1rem;
+      margin: 0.5rem 0.2rem;
+      cursor: pointer;
+      border-radius: 0.3rem;
+      font-size: 1rem;
+      transition: background-color ease-in-out 150ms;
+      font-weight: 300;
+    }
+
+    &:checked+label {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+  }
+}
+
+select {
+  background-image: url("../img/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 0.7rem;
+  background-position: right 8px top 0.9rem;
+}
+
+select * {
+  background-color: lighten($color: $light, $amount: 7);
+  border: 1px solid var(--light);
+  box-shadow: 0px;
+  padding: 1rem;
+  margin: 1rem;
+
+  &:hover {
+    background-color: var(--light);
+  }
+}
+
+@keyframes showup {
+  0% {
+    // transform: scale(0.1);
+    opacity: 0.5;
+  }
+
+  // 90% {
+  //   transform: scale(1);
+  // }
+
+  // 95% {
+  //   transform: scale(1.5);
+  // }
+
+  100% {
+    // transform: scale(1);
+    opacity: 1;
+  }
+}
