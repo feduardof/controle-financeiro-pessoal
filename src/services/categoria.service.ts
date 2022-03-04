@@ -24,7 +24,7 @@ export class CategoriaService {
     INTERNET: new Categoria("Internet", Icons.MOBILE_FRIENDLY),
     IMPOSTO: new Categoria("Imposto", Icons.GLOBE_2_OUTLINE),
     ENERGIA: new Categoria("Energia", Icons.POWER),
-    ENTRADA: new Categoria("Entrada", Icons.ATTACH_MONEY),
+    ENTRADA: new Categoria("Entrada", Icons.ATTACH_MONEY, true),
   };
 
   load(name : String) : Categoria {

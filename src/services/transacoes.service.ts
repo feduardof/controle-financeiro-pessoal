@@ -101,6 +101,9 @@ export class TransacoesService {
   get resto(): string | null {
     return this.currencyPipe.transform(this.somatorioRecebido - this.somatorioGasto);
   }
+  get ehRestoPositivo(): boolean {
+    return this.somatorioRecebido - this.somatorioGasto > 0;
+  }
 
   private inMonthYear(date : Date, monthYear: Date) : Boolean {
     return date.getFullYear() == monthYear.getFullYear() &&

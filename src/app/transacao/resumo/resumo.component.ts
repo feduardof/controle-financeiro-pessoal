@@ -25,6 +25,10 @@ export class ResumoComponent implements OnInit {
     return this.transacoesService.resto
   }
 
+  get ehRestoPositivo() {
+    return this.transacoesService.ehRestoPositivo;
+  }
+
   get categorias() {
     return this.categoriaService.CATEGORIAS;
   }

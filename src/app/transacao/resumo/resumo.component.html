@@ -1,25 +1,35 @@
 
 <h1 class="title">Resumo </h1>
 <div>
-  <div class="resumo__entrada">Entrada:</div>
-  <div class="resumo__entrada__valor">{{somatorioRecebido}}</div>
 
-  <div class="resumo__saida">Saída:</div>
-  <div class="resumo__saida__valor">{{somatorioGasto}}</div>
+  <div class="detalhamento">
+    <summary><b>Total</b></summary>
+    <div class="detalhamento__descricao">
+      Recebido
+      <span class="detalhamento__descricao__valor entrada">{{somatorioRecebido}}</span>
+    </div>
+    <div class="detalhamento__descricao">
+      Gasto
+      <span class="detalhamento__descricao__valor saida">{{somatorioGasto}}</span>
+    </div>
+    <div class="detalhamento__descricao">
+      Resto
+      <span class="detalhamento__descricao__valor" [class.entrada]="ehRestoPositivo" [class.saida]="!ehRestoPositivo">{{resto}}</span>
+    </div>
+  </div>
 
-  <details title="Oi">
-    <summary>Detalhamento</summary>
-    <div class="resumo__saida" *ngFor="let categoria of categorias | keyvalue">
+  <div class="detalhamento">
+    <summary><b>Detalhamento</b></summary>
+    <div class="detalhamento__descricao" *ngFor="let categoria of categorias | keyvalue">
 
       <i [icon]="categoria.value.icon"></i>
       {{categoria.value.nome}}
-      <span class="resumo__saida__valor">
+      <span class="detalhamento__descricao__valor" [class.entrada]="categoria.value.isEntrada" [class.saida]="!categoria.value.isEntrada">
         {{ obterSomatorioCategoria(categoria.value) }}
       </span>
 
     </div>
-  </details>
+  </div>
 
-  Resto: {{resto}} <br>
 
 </div>
