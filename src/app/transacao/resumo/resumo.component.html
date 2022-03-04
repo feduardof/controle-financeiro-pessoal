@@ -5,14 +5,20 @@
   <div class="detalhamento">
     <summary><b>Total</b></summary>
     <div class="detalhamento__descricao">
+      <i icon="ATTACH_MONEY"></i>
       Recebido
       <span class="detalhamento__descricao__valor entrada">{{somatorioRecebido}}</span>
     </div>
     <div class="detalhamento__descricao">
+      <i icon="MONEY_OFF"></i>
       Gasto
       <span class="detalhamento__descricao__valor saida">{{somatorioGasto}}</span>
     </div>
     <div class="detalhamento__descricao">
+      <i icon="TRENDING_UP_OUTLINE" *ngIf="ehRestoPositivo"></i>
+      <i icon="TRENDING_DOWN_OUTLINE" *ngIf="!ehRestoPositivo"></i>
+
+
       Resto
       <span class="detalhamento__descricao__valor" [class.entrada]="ehRestoPositivo" [class.saida]="!ehRestoPositivo">{{resto}}</span>
     </div>
@@ -22,7 +28,7 @@
     <summary><b>Detalhamento</b></summary>
     <div class="detalhamento__descricao" *ngFor="let categoria of categorias | keyvalue">
 
-      <i [icon]="categoria.value.icon"></i>
+
       {{categoria.value.nome}}
       <span class="detalhamento__descricao__valor" [class.entrada]="categoria.value.isEntrada" [class.saida]="!categoria.value.isEntrada">
         {{ obterSomatorioCategoria(categoria.value) }}
