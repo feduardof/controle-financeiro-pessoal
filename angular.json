@@ -58,7 +58,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/controle-financeiro-pessoal/dist/"
             },
             "development": {
               "buildOptimizer": false,
