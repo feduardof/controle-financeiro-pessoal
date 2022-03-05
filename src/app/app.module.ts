@@ -10,6 +10,8 @@ import { TransacaoModule } from './transacao/transacao.module';
 import { registerLocaleData } from '@angular/common';
 
 import ptBr from '@angular/common/locales/pt';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(ptBr,'pt')
 
@@ -24,7 +26,13 @@ registerLocaleData(ptBr,'pt')
     FormsModule,
     SampleModule,
     TransacaoModule,
-    GlobalComponentsModule
+    GlobalComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'pt' }, {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'}, ],
   bootstrap: [AppComponent],
