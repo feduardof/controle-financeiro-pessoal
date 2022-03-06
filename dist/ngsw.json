@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1646486318705,
+  "timestamp": 1646532582630,
   "index": "/controle-financeiro-pessoal/dist/index.html",
   "assetGroups": [
     {
@@ -30,6 +30,7 @@
       },
       "urls": [
         "/controle-financeiro-pessoal/dist/assets/css/css.gg.css",
+        "/controle-financeiro-pessoal/dist/assets/icons/drawing-icons.svg",
         "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.eot",
         "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.svg",
         "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.ttf",
@@ -63,18 +64,19 @@
   "dataGroups": [],
   "hashTable": {
     "/controle-financeiro-pessoal/dist/assets/css/css.gg.css": "448fc259b0138c38c438e94fa94b4fc5adddabbc",
+    "/controle-financeiro-pessoal/dist/assets/icons/drawing-icons.svg": "0a9a407d5f0bb3f96de4d3d99f506f678c1ac01f",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.eot": "59f4e59110c04b9f85210d432423af862de5a10b",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.svg": "e1b5a719aa80b52212a92aab627a923a2892c55f",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.ttf": "9bdd369017af581a3907e53b2a32564cb6e9a1f8",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.woff": "9f153cf15e8f2e588765981b9f21581aa880d807",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-128x128.png": "87e544d1e01e82a08e24c0614e70e6c98da4699b",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-144x144.png": "d8515c2bde674fc39182ac29d025a58c34397c14",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-152x152.png": "ded0cb4ec1bc07146ce8b326ebaea3045fd532d8",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-192x192.png": "f932e6d0970030e7ac3865e4bf7c959d0ef7182c",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-384x384.png": "da72ed799b808ed260d45b21bdefdcc8d6e15f5d",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-512x512.png": "2c41ec2ab4c83246a99049134f24a0b9a2cdcf48",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-72x72.png": "483667a9d4b08776b425b2a454958b048e34e709",
-    "/controle-financeiro-pessoal/dist/assets/icons/icon-96x96.png": "acc47060775d65d28e4e5860ec1f4eb4be03f9ea",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-128x128.png": "b689912c3988ced14ca99f7a071b657647c4f9b8",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-144x144.png": "066ada908c3738136ea335e3645a477ad2fdc913",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-152x152.png": "ce987d8429edc0c90e3c9f7669c331aad2457545",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-192x192.png": "2c992a90e830fb6b3cf8938729dd143637b933d1",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-384x384.png": "24ed774a5973bc82a9483cf4145553ce1c2aa9f9",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-512x512.png": "317c5b8dd1c388cfc93507872e706af2b9a812ef",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-72x72.png": "d6803d0b7d851b60f69ed36fc94e8903c8077c74",
+    "/controle-financeiro-pessoal/dist/assets/icons/icon-96x96.png": "0775ace1ac6033eb59f80cd6c4614bdaae271265",
     "/controle-financeiro-pessoal/dist/assets/icons/selection.json": "04a7c5b3c867ad3e713eac8a63e02c0e436c5253",
     "/controle-financeiro-pessoal/dist/assets/icons/style.css": "c469e96b47d11400a3ebe160dcf5c511a214cd01",
     "/controle-financeiro-pessoal/dist/assets/img/css.gg.svg": "63b4225cae983d358853b5f12dc0533bd5efd6d8",
