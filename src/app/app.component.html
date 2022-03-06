@@ -1,9 +1,20 @@
 
 
-<section class="section">
-  <header class="header">
+<section class="section-main">
+  <header class="header" (click)="showMenu = !showMenu">
     <i [icon]="icons.ATTACH_MONEY"></i> Controle Financeiro Pessoal
   </header>
+
+
+
+  <nav class="menu" *ngIf="showMenu">
+      <ul>
+        <li>Cadastro</li>
+        <li>Transações</li>
+        <li>Resumo</li>
+      </ul>
+  </nav>
+
 
   <router-outlet></router-outlet>
 

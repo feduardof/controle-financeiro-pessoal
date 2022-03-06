@@ -10,6 +10,7 @@ export class AppComponent  {
 
   title = 'financeiro';
   tituloLista = "Lista de componentes";
+  showMenu = false;
 
   icons: typeof Icons = Icons;
 
