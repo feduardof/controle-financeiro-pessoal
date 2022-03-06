@@ -5,7 +5,7 @@
   "background_color": "#2d3436",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "/controle-financeiro-pessoal/dist/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
