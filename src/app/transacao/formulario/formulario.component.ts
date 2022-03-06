@@ -102,6 +102,9 @@ export class FormularioComponent implements OnInit, OnChanges {
     this.onClear();
   }
 
+  openList() {
+    this.transacaoService.openList();
+  }
 
 
 }

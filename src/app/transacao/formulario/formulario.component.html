@@ -1,5 +1,13 @@
 
-<h1 class="title">Formulário</h1>
+<h1 class="title">
+  <i icon="PLUS_OUTLINE" *ngIf="!transacao.id"></i>
+  <i icon="EDIT_OUTLINE" *ngIf="transacao.id"></i>
+  Formulário
+
+  <nav class="pull-right">
+    <button (click)="openList()" class="btn btn-light show-sm" icon="LIST_OUTLINE"></button>
+  </nav>
+</h1>
 
 
 <form (submit)="onSubmit()" >

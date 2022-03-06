@@ -5,6 +5,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Transacao } from 'src/models/Transacao';
 import { Categoria } from 'src/models/Categoria';
+import { Router } from '@angular/router';
 
 
 interface ArrayEvents {
@@ -21,7 +22,7 @@ export class TransacoesService {
   private monthYear: Date = new Date();
   private events: ArrayEvents = {};
 
-  constructor(private currencyPipe : CurrencyPipe, private storage : StorageService, private uuidService : UuidService, private categoriaService: CategoriaService) {
+  constructor(private currencyPipe : CurrencyPipe, private storage : StorageService, private uuidService : UuidService, private categoriaService: CategoriaService, private router: Router) {
     this.load();
   }
 
@@ -126,6 +127,20 @@ export class TransacoesService {
 
   find(id: any): Transacao | undefined {
     return this.listaTransacoes.find((e) => e.id == id);
+  }
+
+
+  openForm(transacao?: Transacao) {
+    if (transacao)
+      this.router.navigate(["/transacoes/formulario/" + transacao.id ]);
+    else
+      this.router.navigate(["/transacoes/formulario/"]);
+  }
+  openResume() {
+    this.router.navigate(["/transacoes/resumo"]);
+  }
+  openList() {
+    this.router.navigate(["/transacoes"]);
   }
 
 

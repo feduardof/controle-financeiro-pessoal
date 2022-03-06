@@ -46,6 +46,15 @@ body {
   grid-area: m;
 }
 
+.pull-right {
+  float: right;
+  font-weight: normal;
+  &::before {
+    content: " ";
+    clear: both;
+  }
+}
+
 // sm
 @media (min-width: 576px) {
   .hide-sm {
@@ -74,6 +83,10 @@ body {
 
   .menu {
     width: 200px;
+  }
+
+  .show-sm {
+    display: none;
   }
 }
 
@@ -169,4 +182,18 @@ router-outlet {
 
 .border-bottom {
   border-bottom: 1px solid var(--light);
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+router-outlet + * {
+  display: block; /* Change display inline to block */
+  animation: fade 1s;
 }

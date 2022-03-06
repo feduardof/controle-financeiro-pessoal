@@ -14,7 +14,7 @@ export class ListaComponent implements OnInit {
 
   mesAtual : Date = new Date();
 
-  constructor(private transacoesService : TransacoesService, private router: Router,) { }
+  constructor(private transacoesService : TransacoesService) { }
 
   ngOnInit(): void {
 
@@ -30,12 +30,19 @@ export class ListaComponent implements OnInit {
 
   onEdit(transacao : Transacao) {
     // this.editEvent.emit(transacao);
-    this.router.navigate(["/transacoes/formulario/" + transacao.id ]);
+    this.transacoesService.openForm(transacao);
   }
 
   onMonthChange(newDate: Date) {
     this.transacoesService.setMonthYear(newDate);
     this.mesAtual = newDate;
+  }
+
+  openForm() {
+    this.transacoesService.openForm();
+  }
+  openResume() {
+    this.transacoesService.openResume();
   }
 
   registrarTotalNoProximoMes() {

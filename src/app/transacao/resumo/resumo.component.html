@@ -1,5 +1,12 @@
 
-<h1 class="title">Resumo </h1>
+<h1 class="title">
+  <i icon="TRENDING_UP_OUTLINE" *ngIf="ehRestoPositivo"></i>
+  <i icon="TRENDING_DOWN_OUTLINE" *ngIf="!ehRestoPositivo"></i>
+  Resumo
+  <nav class="pull-right">
+    <button (click)="openList()" class="btn btn-light show-sm" icon="LIST_OUTLINE"></button>
+  </nav>
+</h1>
 <div>
 
   <div class="detalhamento">

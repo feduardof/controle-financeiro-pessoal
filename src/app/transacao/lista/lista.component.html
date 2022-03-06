@@ -1,11 +1,23 @@
 
 
 
-  <h1 class="title">Transações</h1>
+  <h1 class="title">
+    <i icon="LIST_OUTLINE"></i> Transações
+    <nav class="pull-right">
+      <button (click)="openResume()" class="btn btn-light show-sm" icon="TRENDING_UP_OUTLINE"></button>
+    </nav>
+  </h1>
+
 
   <app-calendar [onlyMonthYear]="true" (monthChange)="onMonthChange($event)" ></app-calendar>
   <br>
   <ul class="transacoes">
+
+    <li class="show-sm">
+      <div class="alert alert-light" (click)="openForm()">
+        <i icon="PLUS_OUTLINE"></i> Add
+      </div>
+    </li>
     <li *ngFor="let transacao of transacoes" class="transacoes__item" (click)="onEdit(transacao)"
     [class.transacoes__item__entrada]="transacao.isEntrada"
     [class.transacoes__item__saida]="!transacao.isEntrada"

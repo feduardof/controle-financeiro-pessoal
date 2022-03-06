@@ -11,10 +11,10 @@ import { ViewFormularioComponent } from './transacao/view-formulario/view-formul
 const routes: Routes = [
   { path: '', redirectTo: 'transacoes', pathMatch: 'full' },
   { path: 'transacoes', component: TransacaoComponent },
-  // { path: 'transacoes/formulario', component: ViewFormularioComponent },
-  { path: 'transacoes/formulario/:id', component: ViewFormularioComponent, pathMatch: 'prefix' },
+  { path: 'transacoes/formulario', component: ViewFormularioComponent },
+  { path: 'transacoes/formulario/:id', component: ViewFormularioComponent, pathMatch: 'full' },
   { path: 'transacoes/resumo', component: ViewResumoComponent},
-  // { path: 'sample', component: SampleComponent}
+  { path: 'sample', component: SampleComponent}
 ];
 
 @NgModule({

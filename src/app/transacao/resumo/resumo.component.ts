@@ -37,4 +37,8 @@ export class ResumoComponent implements OnInit {
     return this.transacoesService.somatorioGastoCategoria(categoria);
   }
 
+  openList() {
+    this.transacoesService.openList();
+  }
+
 }
