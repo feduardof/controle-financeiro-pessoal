@@ -1,8 +1,8 @@
 {
-  "name": "financeiro",
-  "short_name": "financeiro",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Controle Financeiro Pessoal",
+  "short_name": "Financeiro",
+  "theme_color": "#2d3436",
+  "background_color": "#2d3436",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1646532708837,
+  "timestamp": 1646533071746,
   "index": "/controle-financeiro-pessoal/dist/index.html",
   "assetGroups": [
     {
@@ -94,7 +94,7 @@
     "/controle-financeiro-pessoal/dist/favicon.png": "3b6276ffa8f912388b4e7fb7f588e815ca26492c",
     "/controle-financeiro-pessoal/dist/index.html": "ef6003696007f729482372702242dc5e3c91066f",
     "/controle-financeiro-pessoal/dist/main.e57f6c7ba62289f2d69d.js": "b8a1a058ac15d3e3f686d1c944f47caf1d89bf36",
-    "/controle-financeiro-pessoal/dist/manifest.webmanifest": "87fa92a4080bd4ff3a4d849ca066a5f84fdd65d2",
+    "/controle-financeiro-pessoal/dist/manifest.webmanifest": "52e385f2f79906b6c5525bf73ebdb5fc4c2a03ba",
     "/controle-financeiro-pessoal/dist/polyfills.c050f4e1c72353eae515.js": "be21af7bcb176a5b652d57a4a6c57e5efdcebda5",
     "/controle-financeiro-pessoal/dist/runtime.a0991b43069607aee082.js": "ab2f514f524ff1a2e888d9a05eb5f5efba39ad35",
     "/controle-financeiro-pessoal/dist/styles.eafc1f4677b61233a9b0.css": "96800e53c7ce53d01adb70fe1406d77ff736b231"
