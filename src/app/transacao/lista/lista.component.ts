@@ -1,6 +1,7 @@
 import { Transacao } from './../../../models/Transacao';
 import { TransacoesService } from './../../../services/transacoes.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -13,7 +14,7 @@ export class ListaComponent implements OnInit {
 
   mesAtual : Date = new Date();
 
-  constructor(private transacoesService : TransacoesService) { }
+  constructor(private transacoesService : TransacoesService, private router: Router,) { }
 
   ngOnInit(): void {
 
@@ -28,9 +29,9 @@ export class ListaComponent implements OnInit {
   }
 
   onEdit(transacao : Transacao) {
-    this.editEvent.emit(transacao);
+    // this.editEvent.emit(transacao);
+    this.router.navigate(["/transacoes/formulario/" + transacao.id ]);
   }
-
 
   onMonthChange(newDate: Date) {
     this.transacoesService.setMonthYear(newDate);

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CategoriaService } from './../../../services/categoria.service';
 import { Transacao, TiposTransacao } from './../../../models/Transacao';
 import { TransacoesService } from './../../../services/transacoes.service';
@@ -18,7 +19,7 @@ export class FormularioComponent implements OnInit, OnChanges {
   dataFim: Date = new Date();
   diaMes: number = 1;
 
-  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe, private categoriaService : CategoriaService) {}
+  constructor(private transacaoService: TransacoesService, private currencyPipe: CurrencyPipe, private categoriaService : CategoriaService, private router: Router) {}
 
   get categorias() {
     return this.categoriaService.CATEGORIAS;
@@ -74,6 +75,7 @@ export class FormularioComponent implements OnInit, OnChanges {
 
       }
     }
+    this.router.navigate(["/transacoes"]);
 
   }
   transformAmount(element: any) {
@@ -92,6 +94,7 @@ export class FormularioComponent implements OnInit, OnChanges {
   onClear() {
     this.transacao = new Transacao(this.currencyPipe);
     this.transacaoChange.emit(this.transacao);
+    this.router.navigate(["/transacoes"]);
   }
 
   onDelete() {

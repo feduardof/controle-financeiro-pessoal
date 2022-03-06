@@ -124,4 +124,9 @@ export class TransacoesService {
   }
 
 
+  find(id: any): Transacao | undefined {
+    return this.listaTransacoes.find((e) => e.id == id);
+  }
+
+
 }

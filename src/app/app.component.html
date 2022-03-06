@@ -9,9 +9,9 @@
 
   <nav class="menu" *ngIf="showMenu">
       <ul>
-        <li>Cadastro</li>
-        <li>Transações</li>
-        <li>Resumo</li>
+        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes/formulario">Cadastro</a></li>
+        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes">Transações</a></li>
+        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes/resumo">Resumo</a></li>
       </ul>
   </nav>
 
