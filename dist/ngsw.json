@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1646532582630,
+  "timestamp": 1646532708837,
   "index": "/controle-financeiro-pessoal/dist/index.html",
   "assetGroups": [
     {
@@ -64,7 +64,7 @@
   "dataGroups": [],
   "hashTable": {
     "/controle-financeiro-pessoal/dist/assets/css/css.gg.css": "448fc259b0138c38c438e94fa94b4fc5adddabbc",
-    "/controle-financeiro-pessoal/dist/assets/icons/drawing-icons.svg": "0a9a407d5f0bb3f96de4d3d99f506f678c1ac01f",
+    "/controle-financeiro-pessoal/dist/assets/icons/drawing-icons.svg": "ee013df3f6277c6c5709051c49f9d7060fdbf2af",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.eot": "59f4e59110c04b9f85210d432423af862de5a10b",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.svg": "e1b5a719aa80b52212a92aab627a923a2892c55f",
     "/controle-financeiro-pessoal/dist/assets/icons/fonts/icomoon.ttf": "9bdd369017af581a3907e53b2a32564cb6e9a1f8",
