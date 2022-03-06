@@ -12,37 +12,124 @@ body {
   height: 100%;
 }
 
-section {
+.menu {
+  height: calc(100% - 42px - 20px);
+  position: absolute;
+  display: block;
+  top: 42px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px -2px #000;
+  z-index: 9;
+  width: 100%;
+}
+
+.section-main {
   height: 100%;
   display: grid;
-  grid-template-rows: 42px 1fr 20px;
+  grid-template-rows: 42px calc(100% - 42px - 20px) 20px;
   grid-template-areas:
     "h"
     "m"
     "f";
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.main-3 {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+// sm
+@media (min-width: 576px) {
+  .hide-sm {
+    display: none;
+  }
+  .section-menu {
+    width: 100%;
+  }
+}
+
+// max-sm
+@media (max-width: 767px) {
+  .show-md {
+    display: none;
+  }
+}
+
+// md
+@media (min-width: 768px) {
+  .main-3 {
+    grid-area: m;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: "l c";
+    // min-height: 100%;
+  }
+
+  .menu {
+    width: 200px;
+  }
+}
+
+// max-md
+@media (max-width: 991px) {
+  .show-lg {
+    display: none;
+  }
+}
+
+// lg
+@media (min-width: 992px) {
+  .main-3 {
+    grid-area: m;
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    grid-template-areas: "l c r";
+    min-height: 100%;
+  }
+}
+
+// x-lg
+@media (min-width: 1200px) {
+  .main-3 {
+    grid-area: m;
+    display: grid;
+    grid-template-columns: 1fr 300px 580px 300px 1fr;
+    grid-template-areas: "z l c r y";
+    min-height: 100%;
+  }
+}
+
+// xx-lg
+@media (min-width: 1400px) {
 }
 
 .header {
   grid-area: h;
 }
 
-.main-3 {
-  grid-area: m;
-  display: grid;
-  grid-template-columns: 1fr 300px 580px 300px 1fr;
-  grid-template-areas: "z l c r y";
-  min-height: 100%;
-}
+// .main-3 {
+//   grid-area: m;
+//   display: grid;
+//   grid-template-columns: 1fr 300px 580px 300px 1fr;
+//   grid-template-areas: "z l c r y";
+//   min-height: 100%;
+// }
 
-.main-1 {
-  grid-area: m;
-  display: grid;
-  grid-template-columns: 1fr 1180px 1fr;
-  grid-template-areas: "z c y";
+// .main-1 {
+//   grid-area: m;
+//   display: grid;
+//   grid-template-columns: 1fr 1180px 1fr;
+//   grid-template-areas: "z c y";
 
-  // max-width: 1400px;
-  // margin-left: calc(calc(100% - 1400px) / 2);
-}
+//   // max-width: 1400px;
+//   // margin-left: calc(calc(100% - 1400px) / 2);
+// }
 
 router-outlet {
   display: none;
