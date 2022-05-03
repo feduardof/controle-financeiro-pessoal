@@ -1,0 +1,29 @@
+@use "sass:map";
+
+$sizes: (
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.75rem,
+  5: 3rem,
+);
+$sides: (
+  "r": "right",
+  "l": "left",
+  "t": "top",
+  "b": "bottom",
+);
+$effects: (
+  "p": "padding",
+  "m": "margin",
+);
+
+@each $ek, $ev in $effects {
+  @each $sk, $sv in $sides {
+    @each $szk, $szv in $sizes {
+      .#{$ek}#{$sk}-#{$szk} {
+        #{$ev}-#{$sv}: $szv;
+      }
+    }
+  }
+}

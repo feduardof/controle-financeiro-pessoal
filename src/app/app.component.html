@@ -3,17 +3,33 @@
 <section class="section-main">
   <header class="header" (click)="showMenu = !showMenu">
     <i [icon]="icons.ATTACH_MONEY"></i> Controle Financeiro Pessoal
+    <div class="pull-right">
+      <div class="pr-2">
+
+        <i [icon]="icons.MENU"></i>
+      </div>
+    </div>
   </header>
 
 
 
-  <!-- <nav class="menu" *ngIf="showMenu">
+  <nav class="menu" *ngIf="showMenu">
       <ul>
-        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes/formulario">Cadastro</a></li>
-        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes">Transações</a></li>
-        <li><a (click)="showMenu = !showMenu" routerLink="/transacoes/resumo">Resumo</a></li>
+        <li class="link"><a (click)="showMenu = !showMenu" routerLink="/transacoes/formulario"> <i [icon]="icons.PLUS_OUTLINE"></i> Cadastro</a></li>
+        <li class="link"><a (click)="showMenu = !showMenu" routerLink="/transacoes"> <i [icon]="icons.LIST_OUTLINE"></i> Transações</a></li>
+        <li class="link"><a (click)="showMenu = !showMenu" routerLink="/transacoes/resumo"> <i [icon]="icons.TRENDING_UP_OUTLINE"></i> Resumo</a></li>
       </ul>
-  </nav> -->
+      <h3>Administração</h3>
+      <ul>
+        <li class="link"><a (click)="backup()"> <i [icon]="icons.DOWNLOAD_OUTLINE"></i> Backup</a></li>
+        <li class="link"><a (click)="uploader.click()"> <i [icon]="icons.UPLOAD_FILE"></i> Restore</a></li>
+
+      </ul>
+
+
+      <input #uploader type="file" style="display: none" (change)="restore($event)" />
+
+  </nav>
 
 
   <router-outlet></router-outlet>
