@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1646610208286,
+  "timestamp": 1651585389272,
   "index": "/controle-financeiro-pessoal/dist/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/controle-financeiro-pessoal/dist/favicon.png",
         "/controle-financeiro-pessoal/dist/index.html",
-        "/controle-financeiro-pessoal/dist/main.8591764f67864559a880.js",
+        "/controle-financeiro-pessoal/dist/main.4b627a68b88dcb8ddcb9.js",
         "/controle-financeiro-pessoal/dist/manifest.webmanifest",
         "/controle-financeiro-pessoal/dist/polyfills.c050f4e1c72353eae515.js",
         "/controle-financeiro-pessoal/dist/runtime.a0991b43069607aee082.js",
-        "/controle-financeiro-pessoal/dist/styles.4be2b700bf602b7b0527.css"
+        "/controle-financeiro-pessoal/dist/styles.da30fd3792b749a6f973.css"
       ],
       "patterns": []
     },
@@ -53,6 +53,7 @@
         "/controle-financeiro-pessoal/dist/assets/scss/label.scss",
         "/controle-financeiro-pessoal/dist/assets/scss/layout.scss",
         "/controle-financeiro-pessoal/dist/assets/scss/main.scss",
+        "/controle-financeiro-pessoal/dist/assets/scss/spacing.scss",
         "/controle-financeiro-pessoal/dist/assets/scss/table.scss",
         "/controle-financeiro-pessoal/dist/assets/scss/text.scss",
         "/controle-financeiro-pessoal/dist/assets/scss/vars.scss",
@@ -85,19 +86,20 @@
     "/controle-financeiro-pessoal/dist/assets/scss/buttons.scss": "50981be24992654c619aab62662c3f05e1b18d85",
     "/controle-financeiro-pessoal/dist/assets/scss/forms.scss": "62e25ae544a5c612b2e0d28674f13998220d1061",
     "/controle-financeiro-pessoal/dist/assets/scss/label.scss": "ba872a79f3264cf31fa6b64524374621fad9baca",
-    "/controle-financeiro-pessoal/dist/assets/scss/layout.scss": "88cfa1aeb26d8ceddf806f7da61498cfcc2c4563",
-    "/controle-financeiro-pessoal/dist/assets/scss/main.scss": "b96cb397bafb1efe3622f9f388c600619804a764",
+    "/controle-financeiro-pessoal/dist/assets/scss/layout.scss": "769238c75dc972a8e19cf1a6ad8c976b84fd5ecf",
+    "/controle-financeiro-pessoal/dist/assets/scss/main.scss": "9c2baf90d1903f92ffe8ad3da54f6ea09b14b955",
+    "/controle-financeiro-pessoal/dist/assets/scss/spacing.scss": "c8ff9d2ba11c2f375776ad95cd8601fb7a0eade8",
     "/controle-financeiro-pessoal/dist/assets/scss/table.scss": "2c53da45865765fd65d78c8bc9e3733d71a24b1c",
     "/controle-financeiro-pessoal/dist/assets/scss/text.scss": "f6191704938a413147cb4e9f899a0eb4e24100aa",
     "/controle-financeiro-pessoal/dist/assets/scss/vars.scss": "f6f419a7373c92fe518fa9b3b156785adb259972",
     "/controle-financeiro-pessoal/dist/down-arrow.1b57139fae6e4e599092.svg": "de237d66568136b4337d17de07a49fe1139138f7",
     "/controle-financeiro-pessoal/dist/favicon.png": "01df5144b1609c18a61173f62d1e5abb74e9a1aa",
-    "/controle-financeiro-pessoal/dist/index.html": "290cd4cf1a0f3db87ae3efc06b670c78fe6be80a",
-    "/controle-financeiro-pessoal/dist/main.8591764f67864559a880.js": "baffdadf146f3f408b75680decaff0ab9433c5a7",
+    "/controle-financeiro-pessoal/dist/index.html": "c16bdfbc162b4847d6f52240b32ea6652f465c27",
+    "/controle-financeiro-pessoal/dist/main.4b627a68b88dcb8ddcb9.js": "baabd445f551362dd0209fbd3a3e9a3d5727caf1",
     "/controle-financeiro-pessoal/dist/manifest.webmanifest": "b7986a294717ac7850173d6398d6c7897c2ca9c2",
     "/controle-financeiro-pessoal/dist/polyfills.c050f4e1c72353eae515.js": "be21af7bcb176a5b652d57a4a6c57e5efdcebda5",
     "/controle-financeiro-pessoal/dist/runtime.a0991b43069607aee082.js": "ab2f514f524ff1a2e888d9a05eb5f5efba39ad35",
-    "/controle-financeiro-pessoal/dist/styles.4be2b700bf602b7b0527.css": "2072cef5c31939769b9069cb754388c13b13fe91"
+    "/controle-financeiro-pessoal/dist/styles.da30fd3792b749a6f973.css": "e8c2a7cc80658c08e6ed08a996a82a690c06c567"
   },
   "navigationUrls": [
     {
